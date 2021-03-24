@@ -56,17 +56,13 @@ class QRCaptureViewState extends State<QRCaptureView> {
   @override
   Widget build(BuildContext context) {
     if (Platform.isIOS) {
-      try {
-        return UiKitView(
-          viewType: 'plugins/qr_capture_view',
-          creationParamsCodec: StandardMessageCodec(),
-          onPlatformViewCreated: (id) {
-            widget.controller._onPlatformViewCreated(id);
-          },
-        );
-      } catch (e) {
-        return Container(child: Text("Error on load QRScanner"));
-      }
+      return UiKitView(
+        viewType: 'plugins/qr_capture_view',
+        creationParamsCodec: StandardMessageCodec(),
+        onPlatformViewCreated: (id) {
+          widget.controller._onPlatformViewCreated(id);
+        },
+      );
     } else {
       return AndroidView(
         viewType: 'plugins/qr_capture_view',
