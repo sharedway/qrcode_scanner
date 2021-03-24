@@ -38,7 +38,7 @@
         AVCaptureVideoPreviewLayer *layer = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
         self.captureLayer = layer;
 
-        layer.backgroundColor = [UIColor darkGray].CGColor;
+        layer.backgroundColor = UIColor.darkGray;
         [self.layer addSublayer:layer];
         layer.videoGravity = AVLayerVideoGravityResizeAspectFill;
 
